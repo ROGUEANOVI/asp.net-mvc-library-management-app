@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LibraryManagementApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementApp.Data
 {
@@ -7,5 +8,8 @@ namespace LibraryManagementApp.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
+
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }
