@@ -1,6 +1,7 @@
 ﻿using LibraryManagementApp.Data;
 using LibraryManagementApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LibraryManagementApp.Controllers
 {
@@ -23,30 +24,37 @@ namespace LibraryManagementApp.Controllers
         [HttpGet]
         public JsonResult GetAllBooks()
         {
-            var books = _context.Books.ToList();
+            var books = _context.Books.ToList().Select(book => {
+                book.Author = _context.Authors.Find(book.AuthorId);
+                return book;
+            }).ToList();
+
             return Json(new { data = books });
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.AuthorsList = _context.Authors.ToList(); 
+            var authors = _context.Authors.ToList();
+            ViewBag.AuthorsList = authors.Select(author => new SelectListItem { Value = author.Id.ToString(), Text = author.Name }).ToList();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Author author)
+        public async Task<IActionResult> Create([Bind("Title, AuthorId")] Book book)
         {
             if (ModelState.IsValid)
             {
-                _context.Authors.Add(author);
+                _context.Books.Add(book);
                 await _context.SaveChangesAsync();
 
                 TempData["Mensaje"] = "Libro creado exitosamente";
                 return RedirectToAction(nameof(Index));
             }
-            return View();
+            var authors = _context.Authors.ToList();
+            ViewBag.AuthorsList = authors.Select(author => new SelectListItem { Value = author.Id.ToString(), Text = author.Name }).ToList();
+            return View(book);
         }
     }
 }

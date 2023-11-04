@@ -45,7 +45,7 @@ namespace LibraryManagementApp.Controllers
                 TempData["Mensaje"] = "Autor creado exitosamente";
                 return RedirectToAction(nameof(Index));
             }
-            return View();
+            return View(author);
         }
     }
 }
