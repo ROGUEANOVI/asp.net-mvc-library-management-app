@@ -14,7 +14,7 @@ function loadDataTable() {
         "columns": [
             { "data": "id" },
             { "data": "title" },
-            { "data": {"author": "name" } },
+            { "data": "author.name" },
         ],
         "language": {
             "decimal": "",

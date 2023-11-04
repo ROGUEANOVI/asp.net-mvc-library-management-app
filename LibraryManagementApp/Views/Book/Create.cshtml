@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Crear Libro";
+    var AuthorsList = ViewBag.AuthorsList;
 }
 
 <div class="container mt-4">
@@ -23,7 +24,7 @@
                         <div class="form-group mb-3">
                             <strong><label asp-for="Title" class="form-label"></label></strong>
                             <input asp-for="Title" type="text" class="form-control" placeholder="Ingrese el titulo del libro"/>
-                            <span asp-validation-for="Title" class="bg-danger text-light px-2"></span>
+                            <span asp-validation-for="Title" class="text-danger px-2"></span>
                         </div>
                     </div>
                 </div>
@@ -31,11 +32,11 @@
                 <div class="row">
                     <div class="col-8 offset-2">
                         <div class="form-group mb-3">
-                            <strong><label asp-for="Id" class="form-label">Autores</label></strong>
-                            <select asp-for="Id" asp-items="ViewBag.AuthorsList" class="form-select">
-                                <option value="">-- Seleccione un autor --</option>
+                            <strong><label asp-for="AuthorId" class="form-label">Autores</label></strong>
+                            <select asp-for="AuthorId" asp-items="AuthorsList" class="form-select">
+                                <option value="">Seleccione un autor</option>
                             </select>
-                            <span asp-validation-for="Id" class="bg-danger text-light px-2"></span>
+                            <span asp-validation-for="AuthorId" class="text-danger px-2"></span>
                         </div>
                     </div>
                 </div>
