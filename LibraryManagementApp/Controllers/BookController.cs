@@ -30,6 +30,7 @@ namespace LibraryManagementApp.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.AuthorsList = _context.Authors.ToList(); 
             return View();
         }
 
