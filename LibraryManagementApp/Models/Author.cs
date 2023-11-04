@@ -10,7 +10,7 @@ namespace LibraryManagementApp.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "El nombre es requerido")]
-        [StringLength(45, MinimumLength = 3, ErrorMessage = "El nombre debe tener entre 3 y 45 caracteres")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "El nombre debe tener entre 3 y 100 caracteres")]
         [Display(Name = "Nombre")]
         public string Name { get; set; } = null!;
     }
