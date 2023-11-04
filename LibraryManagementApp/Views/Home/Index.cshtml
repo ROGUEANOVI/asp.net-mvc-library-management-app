@@ -1,8 +1,18 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <br />
+    <br />
+
+    <h1 class="display-4">Bienvenidos a la Biblioteca</h1>
+    <p><a href="https://github.com/ROGUEANOVI/asp.net-mvc-library-management-app/blob/main/README.md" target="_blank">Documentación  <i class="bi bi-file-earmark-medical-fill"></i></a></p>
+    <p> Desarrollado por: <a href="https://www.linkedin.com/in/ovidio-antonio-romero-guerrero/" target="_blank">Ovidio Romero  <i class="bi bi-linkedin"></i></a></p>
+
+    <br />
+    <br />
+
+    <a asp-controller="Book" asp-action="Index" class="btn btn-lg btn-info">Libros</a>
+    <a asp-controller="Author" asp-action="Index" class="btn btn-lg btn-secondary mx-2">Autores</a>
 </div>
