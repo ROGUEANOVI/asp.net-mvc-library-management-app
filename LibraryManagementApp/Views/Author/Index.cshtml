@@ -1,0 +1,46 @@
+﻿@model Author
+
+@{
+    ViewData["Title"] = "Autores";
+}
+
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center text-primary">Listado de Autores</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <a asp-controller="Book" asp-action="Index" class="btn btn-lg btn-secondary"><i class="bi bi-list-ul"></i>&nbsp; <strong>Ver Libros</strong></a>
+        </div>
+        <div class="col-8">
+        </div>
+        <div class="col-2 text-center">
+            <a asp-controller="Author" asp-action="Create" class="btn btn-lg btn-primary"><i class="bi bi-plus-square"></i>&nbsp; <strong>Nuevo Autor</strong></a>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-secondary table-striped" width="100%" id="tbAuthors">
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(m => m.Id)</th>
+                            <th>@Html.DisplayNameFor(m => m.Name)</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/author.js">
+    </script>
+}
